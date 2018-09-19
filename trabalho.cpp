@@ -2,6 +2,8 @@
 
 // ######### ESCREVA O NUMERO DO SEU GRUPO AQUI, CONFORME LINK NA ESPECIFICACAO DO EP
 // ignore os warning to compilador, se houver
+// ######### ESCREVA O NUMERO DO SEU GRUPO AQUI, CONFORME LINK NA ESPECIFICACAO DO EP
+// ignore os warning to compilador, se houver
 char* grupo() {
     return("20");
 }
@@ -22,6 +24,7 @@ char* nroUSP2() {
 typedef struct {
     NO* inicio; // Primeiro nó da lista
 } LISTA;
+
 
 // Inicializar uma nova lista
 void inicializar(LISTA *l) {
@@ -102,6 +105,15 @@ void exibir(LISTA l) {
     }
 }
 
+// Exibir os elementos de uma lista - RECEBENDO UM NÓ
+void percorrerLista(NO* atual) {
+
+    while(atual) { // Executa enquanto houver nó a ser processado
+        printf("%c", atual->letra); // Exibe a letra do nó
+        atual = atual->prox; // Altera o nó a ser processado para o próximo
+    }
+}
+
 // Inverter dois elementos
 void inverterElementos(NO* no, NO* ant) {
     if(no->prox) { // Verifica se há um próximo nó
@@ -120,9 +132,10 @@ void inverter(LISTA* l) {
     l->inicio = temp; // Inverte o nó inicial com o último
 }
 
-// Codifica uma lista de acordo com a especificação do PDF
+
 // o EP consiste em implementar esta funcao
 NO* codificar(NO* frase) {
+
     // Declara uma variável para armazenar o nó que está sendo processado
     NO* atual = frase;
 
@@ -181,16 +194,21 @@ NO* codificar(NO* frase) {
 
         atual = atual->prox; // Altera o nó a ser processado para o próximo
     }
+    //Printando a primeira etapa
+    //printf("Primeira etapa: "); exibir(resposta);
+
 
     // Segunda etapa de codificação
     inverter(&resposta); // Inverte a lista de resposta
-
-    printf("resposta: "); exibir(resposta);
+    //printf("\nSegunda etapa: "); exibir(resposta);
 
     // Declara a variável a ser retornada para o usuário, contendo o nó inicial da lista de resposta
     NO* resp = resposta.inicio;
     return resp; // Retorna o nó inicial da lista de resposta
+
 }
+
+
 
 
 
@@ -199,16 +217,8 @@ NO* codificar(NO* frase) {
 //---------------------------------------------------------
 
 
+
 int main() {
-    LISTA l;
-    inicializar(&l);
-    anexar('I', &l);
-    anexar('G', &l);
-    anexar('O', &l);
-    anexar('R', &l);
-    //exibir(l);
-    //inverter(&l);
-    //exibir(l);
 
     LISTA t;
     inicializar(&t);
@@ -246,18 +256,24 @@ int main() {
     anexar('A', &t);
     anexar('L', &t);
     anexar('.', &t);
-    codificar(t.inicio);
-    //exibir(t);
-    //exibirElem(codificar(t.inicio));
+    //codificar(t.inicio);
+
+    NO* p = t.inicio;
+
+    NO* teste = NULL;
+    teste = codificar(p);
+
+    percorrerLista(teste);
+
 	// aqui vc pode incluir codigo para inserir elementos
 	// de teste na sua lista apontada por p
 
 	// o EP sera testado com chamadas deste tipo
-	NO* teste = NULL;
-	//teste = codificar(l.inicio);
+	//NO* teste = NULL;
+	//teste = codificar(p);
 
 	// e aqui precisaria percorrer a lista teste para ver se ficou correta etc.
 
 }
 
-// por favor nao inclua nenhum c�digo abaixo da fun��o main()
+// por favor nao inclua nenhum código abaixo da função main()
