@@ -146,6 +146,11 @@ NO* codificar(NO* frase) {
     anexar('I', &vogais);
     anexar('O', &vogais);
     anexar('U', &vogais);
+    anexar('a', &vogais);
+    anexar('e', &vogais);
+    anexar('i', &vogais);
+    anexar('o', &vogais);
+    anexar('u', &vogais);
 
     // Cria uma lista auxiliar para armazenar sequencias de não-vogais que ainda não foram invertidas
     // e anexadas à lista de resposta
