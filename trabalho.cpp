@@ -107,7 +107,6 @@ void exibir(LISTA l) {
 
 // Exibir os elementos de uma lista - RECEBENDO UM NÓ
 void percorrerLista(NO* atual) {
-
     while(atual) { // Executa enquanto houver nó a ser processado
         printf("%c", atual->letra); // Exibe a letra do nó
         atual = atual->prox; // Altera o nó a ser processado para o próximo
@@ -194,23 +193,15 @@ NO* codificar(NO* frase) {
 
         atual = atual->prox; // Altera o nó a ser processado para o próximo
     }
-    //Printando a primeira etapa
-    //printf("Primeira etapa: "); exibir(resposta);
-
 
     // Segunda etapa de codificação
     inverter(&resposta); // Inverte a lista de resposta
-    //printf("\nSegunda etapa: "); exibir(resposta);
 
     // Declara a variável a ser retornada para o usuário, contendo o nó inicial da lista de resposta
     NO* resp = resposta.inicio;
     return resp; // Retorna o nó inicial da lista de resposta
 
 }
-
-
-
-
 
 //---------------------------------------------------------
 // use main() para fazer chamadas de teste ao seu programa
@@ -220,7 +211,10 @@ NO* codificar(NO* frase) {
 
 int main() {
 
-    LISTA t;
+    // aqui vc pode incluir codigo para inserir elementos
+	// de teste na sua lista apontada por p
+
+	LISTA t;
     inicializar(&t);
     anexar('E', &t);
     anexar('S', &t);
@@ -256,24 +250,11 @@ int main() {
     anexar('A', &t);
     anexar('L', &t);
     anexar('.', &t);
-    //codificar(t.inicio);
 
     NO* p = t.inicio;
 
     NO* teste = NULL;
     teste = codificar(p);
-
-    percorrerLista(teste);
-
-	// aqui vc pode incluir codigo para inserir elementos
-	// de teste na sua lista apontada por p
-
-	// o EP sera testado com chamadas deste tipo
-	//NO* teste = NULL;
-	//teste = codificar(p);
-
-	// e aqui precisaria percorrer a lista teste para ver se ficou correta etc.
-
 }
 
 // por favor nao inclua nenhum código abaixo da função main()
